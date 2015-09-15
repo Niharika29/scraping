@@ -41,7 +41,7 @@ def main():
 
 			webpage = Page( website, page )
 			if webpage.exists is True:
-				final.write( str(host) + str(url) + '\t' + page + '\t' + str(webpage.length) + '\n' )
+				final.write( str(host) + str(url) + '\t\t' + page + '\t\t' + str(webpage.length) + '\n' )
 			else: 
 				final.write( 'Error: ' +  str(host) + str(url) + '\t' + page + ' :Page doesnt exist' + '\n' )
 
@@ -65,6 +65,16 @@ def findch( site ):
 		return [ site[0:site.find( 'wikimedia' )], site[site.find('wikimedia'):] ]
 	elif site.find('mania') > 0:
 		return [ site[0:13], 'wikimedia' ]
+	elif site.find('commons') > 0:
+		return [ 'commons', 'wikimedia' ]
+	elif site.find('meta') > 0:
+		return [ 'meta', 'wikimedia' ]
+	elif site.find('strategy') > 0:
+		return [ 'strategy', 'wikimedia' ]
+	elif site.find('incubator') > 0:
+		return [ 'incubator', 'wikimedia' ]
+	elif site.find('outreach') > 0:
+		return [ 'outreach', 'wikimedia' ]
 	elif site.find('wiki') > 0:
 		return [ site[0:site.find('wiki')], 'wikipedia' ]
 	else:
